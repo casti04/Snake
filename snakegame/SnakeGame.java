@@ -28,10 +28,10 @@ public class SnakeGame extends JPanel implements ActionListener {
     }
 
     public void paint(Graphics g) {
-        g.setColor(color(5, 50, 10));//KAKAV E CVETA NA CANVASA NA IGRATA - V RGB FORMAT
+        g.setColor(new Color(64, 64, 64)); // Fondo del tablero (#404040 en RGB)
         g.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
-        g.setColor(color(255, 216, 0));
 
+        g.setColor(Color.WHITE); // Color de las líneas de la cuadrícula
         for (int xx = 0; xx <= WIDTH * SCALE; xx += SCALE) {
             g.drawLine(xx, 0, xx, HEIGHT * SCALE);
         }
@@ -41,11 +41,11 @@ public class SnakeGame extends JPanel implements ActionListener {
         }
 
         for (int d = 0; d < s.length; d++) {
-            g.setColor(color(0, 0, 255));//CVETA NA ZMIYATA
+            g.setColor(new Color(0, 0, 255)); // Color de la serpiente
             g.fillRect(s.snakeX[d] * SCALE + 1, s.snakeY[d] * SCALE + 1, SCALE - 1, SCALE - 1);
         }
 
-        g.setColor(color(255, 0, 0));//CVETA NA YABALKATA
+        g.setColor(Color.RED); // Color de la manzana
         g.fillRect(a.posX * SCALE + 1, a.posY * SCALE + 1, SCALE - 1, SCALE - 1);
     }
 
